@@ -1,0 +1,74 @@
+<div class="sticky top-0 left-0 w-full bg-white z-10">
+  <header class="py-3 lg:py-7 px-4 border-b border-pay-header-border relative">
+    <div class="max-w-7xl mx-auto">
+      <nav class="flex justify-between items-center">
+        <a class="block" [routerLink]="['/']">
+          <img height="42" width="192" src="./assets/images/e-logo.jpg" />
+        </a>
+        <button
+          class="lg:hidden block text-xl"
+          (click)="toggleMenu = !toggleMenu"
+        >
+          <fa-icon [icon]="faBars"></fa-icon>
+        </button>
+        <div
+          class="flex w-full justify-between items-center lg:static absolute left-0 top-[75px] z-10 lg:p-0 p-4 bg-white transition-all"
+          [ngClass]="toggleMenu ? 'left-0' : '-left-full'"
+        >
+          <ul
+            class="flex lg:flex-row flex-col lg:space-y-0 space-y-4 text-left lg:space-x-4 lg:items-center lg:ml-8"
+          >
+            <li>
+              <a class="p-2" [routerLink]="['/']">Home</a>
+            </li>
+            <li>
+              <a class="p-2" [routerLink]="['products-details']">Product</a>
+            </li>
+            <li>
+              <a class="p-2" [routerLink]="['billing']">Billing</a>
+            </li>
+          </ul>
+
+          <ul
+            class="flex lg:flex-row flex-col lg:space-y-0 space-y-4 text-left lg:space-x-4 lg:items-center items-end"
+          >
+            <li>
+              <button class="p-2 relative" (click)="toggleSidebar()">
+                <fa-icon [icon]="faCartPlus"></fa-icon>
+                <span
+                  class="text-[8px] p-px w-4 h-4 bg-pay-purple rounded-full text-white absolute top-0 left-0 font-bold"
+                  *ngIf="items.length > 0"
+                >
+                  {{ items?.length }}
+                </span>
+              </button>
+            </li>
+            <li>
+              <a [routerLink]="['cart-items']" class="p-2"> View Cart </a>
+            </li>
+            <li>
+              <a class="p-2" href="#"
+                ><fa-icon [icon]="faUser"></fa-icon> Login</a
+              >
+            </li>
+            <li>
+              <button type="button" class="main-button pt-1 pb-2 px-5">
+                Sign Up
+              </button>
+            </li>
+            <li>
+              <select
+                class="bg-transparent border-none focus:outline-none cursor-pointer"
+              >
+                <option selected>EN</option>
+                <option value="1">BN</option>
+                <option value="2">FR</option>
+                <option value="3">EN</option>
+              </select>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+</div>

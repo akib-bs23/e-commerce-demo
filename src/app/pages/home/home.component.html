@@ -1,0 +1,258 @@
+<section class="py-20 px-4">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-8">
+      <div class="flex md:flex-row flex-col justify-between items-center">
+        <h4 class="text-2xl font-medium py-3">Popular Items</h4>
+        <ul class="inline-flex flex-wrap justify-center lg:space-x-6">
+          <li>
+            <a
+              href="#"
+              class="py-1 sm:py-2 text-sm m-1 sm:m-2 mt- block text-pay-purple border-b-2 border-pay-purple"
+              >Feature</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-pay-gray py-1 sm:py-2 text-sm m-1 sm:m-2 block"
+              >Laptops & Tablets</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-pay-gray py-1 sm:py-2 text-sm m-1 sm:m-2 block"
+              >Woman Fashion</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-pay-gray py-1 sm:py-2 text-sm m-1 sm:m-2 block"
+              >HOT Sale</a
+            >
+          </li>
+        </ul>
+      </div>
+      <app-products></app-products>
+    </div>
+    <div class="mb-8 hidden">
+      <div class="flex md:flex-row flex-col justify-between items-center">
+        <h4 class="text-2xl font-medium py-3">Women Fashion</h4>
+        <ul class="inline-flex flex-wrap justify-center lg:space-x-6">
+          <li>
+            <a
+              href="#"
+              class="py-1 sm:py-2 text-sm m-1 sm:m-2 mt- block text-pay-purple border-b-2 border-pay-purple"
+              >Treanding</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-pay-gray py-1 sm:py-2 text-sm m-1 sm:m-2 block"
+              >Newest</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-pay-gray py-1 sm:py-2 text-sm m-1 sm:m-2 block"
+              >Best Seller</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-pay-gray py-1 sm:py-2 text-sm m-1 sm:m-2 block"
+              >Offer</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div
+        class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 mt-6 items-start"
+      >
+        <!-- Card  -->
+        <div
+          class="border border-pay-card-border rounded-md overflow-hidden xl:col-span-2"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1644251966508-47b1a3d2e56d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80"
+            alt="Product"
+            class="w-full rounded-md object-cover block h-72"
+          />
+          <div class="px-4 py-6 text-center">
+            <h3
+              class="text-2xl sm:text-3xl font-semibold text-pay-dark-blue mb-3"
+            >
+              Man's Clothing
+            </h3>
+            <h6 class="text-pay-purple text-2xl sm:text-3xl font-semibold mb-2">
+              Up To 70% off
+            </h6>
+          </div>
+        </div>
+        <div
+          class="grid lg:grid-cols-2 gap-3 col-span-1 lg:col-span-2 xl:col-span-3"
+        >
+          <div
+            *ngFor="let product of products"
+            class="border border-pay-card-border rounded-md overflow-hidden p-4 flex relative"
+          >
+            <span
+              [ngClass]="
+                product.uuid % 2 == 0 ? ' bg-pay-pink' : ' bg-pay-purple'
+              "
+              class="absolute left-0 top-4 text-white text-xs font-medium rounded-sm p-2 z-10"
+            >
+              Trending
+            </span>
+            <div class="relative w-2/5">
+              <img
+                src="https://images.unsplash.com/photo-1544441893-675973e31985?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTl8fG1lbnMlMjBmYXNoaW9ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                alt="ddd"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div class="p-4 w-3/5">
+              <div class="flex space-x-2 text-pay-card-border mb-2">
+                <fa-icon [icon]="star"></fa-icon>
+                <fa-icon [icon]="star"></fa-icon>
+                <fa-icon [icon]="star"></fa-icon>
+                <fa-icon [icon]="star"></fa-icon>
+                <fa-icon [icon]="star"></fa-icon>
+              </div>
+              <p class="text-pay-dark-blue text-lg mb-2 font-medium">
+                Daniel Clark
+              </p>
+              <p class="text-pay-purple mb-4">12 TT$</p>
+              <div class="flex space-x-4">
+                <button
+                  class="w-9 h-9 inline-flex items-center justify-center bg-pay-white-light text-pay-gray rounded-none text-lg"
+                >
+                  <fa-icon [icon]="cart"></fa-icon>
+                </button>
+                <button
+                  class="w-9 h-9 inline-flex items-center justify-center bg-pay-white-light text-pay-gray rounded-none text-lg"
+                >
+                  <fa-icon [icon]="love"></fa-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-8 hidden">
+      <div class="flex md:flex-row flex-col justify-between items-center">
+        <h4 class="text-2xl font-medium py-3">Men Fashion</h4>
+        <ul class="inline-flex flex-wrap justify-center lg:space-x-6">
+          <li>
+            <a
+              href="#"
+              class="py-1 sm:py-2 text-sm m-1 sm:m-2 mt- block text-pay-purple border-b-2 border-pay-purple"
+              >Treanding</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-pay-gray py-1 sm:py-2 text-sm m-1 sm:m-2 block"
+              >Newest</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-pay-gray py-1 sm:py-2 text-sm m-1 sm:m-2 block"
+              >Best Seller</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-pay-gray py-1 sm:py-2 text-sm m-1 sm:m-2 block"
+              >Offer</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div
+        class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 mt-6 items-start"
+      >
+        <!-- Card  -->
+        <div
+          class="border border-pay-card-border rounded-md overflow-hidden xl:col-span-2"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=800"
+            alt="Product"
+            class="w-full rounded-md object-cover block h-72"
+          />
+          <div class="px-4 py-6 text-center">
+            <h3
+              class="text-2xl sm:text-3xl font-semibold text-pay-dark-blue mb-3"
+            >
+              Woman's Clothing
+            </h3>
+            <h6 class="text-pay-purple text-2xl sm:text-3xl font-semibold mb-2">
+              Up To 70% off
+            </h6>
+          </div>
+        </div>
+        <div
+          class="grid lg:grid-cols-2 gap-3 col-span-1 lg:col-span-2 xl:col-span-3"
+        >
+          <div
+            *ngFor="let product of products"
+            class="border border-pay-card-border rounded-md overflow-hidden p-4 flex relative"
+          >
+            <span
+              [ngClass]="
+                product.uuid % 2 === 0 ? ' bg-pay-purple' : ' bg-pay-pink'
+              "
+              class="absolute left-0 top-4 text-white text-xs font-medium rounded-sm p-2 z-10"
+            >
+              Trending
+            </span>
+            <div class="relative w-2/5">
+              <img
+                src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80"
+                alt="ddd"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div class="p-4 w-3/5">
+              <div class="flex space-x-2 text-pay-card-border mb-2">
+                <fa-icon [icon]="star"></fa-icon>
+                <fa-icon [icon]="star"></fa-icon>
+                <fa-icon [icon]="star"></fa-icon>
+                <fa-icon [icon]="star"></fa-icon>
+                <fa-icon [icon]="star"></fa-icon>
+              </div>
+              <p class="text-pay-dark-blue text-lg mb-2 font-medium">
+                Daniel Clark
+              </p>
+              <p class="text-pay-purple mb-4">12 TT$</p>
+              <div class="flex space-x-4">
+                <button
+                  class="w-9 h-9 inline-flex items-center justify-center bg-pay-white-light text-pay-gray rounded-none text-lg"
+                >
+                  <fa-icon [icon]="cart"></fa-icon>
+                </button>
+                <button
+                  class="w-9 h-9 inline-flex items-center justify-center bg-pay-white-light text-pay-gray rounded-none text-lg"
+                >
+                  <fa-icon [icon]="love"></fa-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

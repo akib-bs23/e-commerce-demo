@@ -1,1 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  color: #002540;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+.nav-toggle {
+  border-radius: 4px;
+  background-color: #f2f2f2;
+  border: 0;
+  color: #fff;
+}
+.lan-select {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.lan-select:focus {
+  outline: none;
+}
+
+.main-button {
+  background-color: #800080;
+  color: #fff;
+  border: 2px solid #800080;
+  border-radius: 1.5rem;
+  display: block;
+  transition: all 0.4s;
+}
+.main-button:hover {
+  background-color: #fff;
+  color: #800080;
+}
+
+.populer-tab li {
+  padding: 0.3rem 1rem;
+}
+.populer-tab li a {
+  color: #496376;
+  padding: 0;
+}
+.populer-tab li a.active {
+  color: #800080;
+  border-bottom: 2px solid #800080;
+}
+
+.breadcrumb li a {
+  position: relative;
+}
+.breadcrumb li a::after {
+  content: "/";
+  position: absolute;
+  right: -10px;
+  top: 2px;
+}

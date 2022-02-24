@@ -1,0 +1,8 @@
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-6">
+  <div
+    *ngFor="let product of products"
+    class="border border-pay-card-border rounded-md overflow-hidden"
+  >
+    <app-product-card [productItem]="product"></app-product-card>
+  </div>
+</div>

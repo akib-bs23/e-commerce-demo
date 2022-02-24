@@ -1,0 +1,163 @@
+<section class="py-20 px-4">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col" *ngIf="allLists.length > 0">
+      <div class="overflow-x-auto">
+        <div class="inline-block min-w-full">
+          <div class="overflow-hidden">
+            <table class="min-w-full">
+              <thead class="border-b border-pay-card-border">
+                <tr>
+                  <th
+                    scope="col"
+                    class="py-3 pr-6 text-sm font-medium tracking-wider text-left"
+                  >
+                    Product details
+                  </th>
+                  <th
+                    scope="col"
+                    class="py-3 pr-6 text-sm font-medium tracking-wider text-left"
+                  >
+                    QTY
+                  </th>
+                  <th
+                    scope="col"
+                    class="py-3 text-sm font-medium tracking-wider text-right"
+                  >
+                    Total
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Product 1 -->
+                <tr
+                  *ngFor="let product of allLists"
+                  class="border-b border-pay-card-border pb-8"
+                >
+                  <td class="pt-4 pb-6 pr-6 text-sm whitespace-nowrap">
+                    <div class="flex items-center">
+                      <img
+                        src="{{ product.image }}"
+                        alt="{{ product.name }}"
+                        class="w-16 h-16 rounded object-cover"
+                      />
+                      <div class="px-4">
+                        <p class="text-sm font-medium mb-1">
+                          {{ product.name }}
+                        </p>
+                        <p class="text-xs text-pay-card-border mb-2">
+                          Size:
+                          <span class="text-pay-dark-blue font-semibold"
+                            >M</span
+                          >
+                          / Color:
+                          <span class="text-pay-dark-blue font-semibold"
+                            >Black</span
+                          >
+                        </p>
+                        <p class="font-semibold text-pay-purple">
+                          {{ product.price }} TT$
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="pt-4 pb-6 pr-6 text-sm whitespace-nowrap">
+                    <div class="inline-block text-center">
+                      <div class="flex items-center space-x-3 mb-2">
+                        <button
+                          (click)="removeQuantity(product)"
+                          [ngClass]="
+                            product.quantity === 1 ? ' cursor-not-allowed' : ''
+                          "
+                          class="border border-pay-header-border rounded-md w-8 h-8 inline-flex justify-center items-center text-xl"
+                        >
+                          -
+                        </button>
+                        <span class="text-xs"> {{ product.quantity }} </span>
+                        <button
+                          (click)="addQuantity(product)"
+                          class="border border-pay-header-border rounded-md w-8 h-8 inline-flex justify-center items-center text-xl"
+                        >
+                          +
+                        </button>
+                      </div>
+                      <button
+                        class="text-red-400 text-xs"
+                        (click)="deleteFromCart(product)"
+                      >
+                        <fa-icon [icon]="delete" class="mr-1"></fa-icon>
+                        Remove
+                      </button>
+                    </div>
+                  </td>
+                  <td class="pt-4 pb-6 text-sm whitespace-nowrap text-right">
+                    <p class="font-semibold text-pay-purple">
+                      {{ product.quantity * product.price }}
+                      TT$
+                    </p>
+                  </td>
+                </tr>
+
+                <!-- Total -->
+                <tr class="border-b border-pay-card-border pb-8">
+                  <td class="pt-4 pb-6 pr-6 text-sm whitespace-nowrap"></td>
+                  <td class="pt-4 pb-6 pr-6 text-sm whitespace-nowrap"></td>
+                  <td class="pt-4 pb-6 text-sm whitespace-nowrap text-right">
+                    <div class="border-b border-pay-card-border mb-3 pb-3">
+                      <div class="flex items-center justify-between mb-3">
+                        <p class="font-medium text-pay-dark-blue text-base">
+                          Subtotal:
+                        </p>
+                        <p class="font-semibold text-pay-purple text-base">
+                          {{ totalPrice }} TT$
+                        </p>
+                      </div>
+                      <div class="flex items-center justify-between sm:hidden">
+                        <p class="font-medium text-pay-dark-blue text-base">
+                          Shipping fee:
+                        </p>
+                        <p class="font-semibold text-pay-purple text-base">
+                          {{ totalPrice }} TT$
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <p class="font-medium text-pay-dark-blue text-base">
+                        Subtotal:
+                      </p>
+                      <p class="font-semibold text-pay-purple text-xl">
+                        {{ totalPrice }} TT$
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="flex justify-between items-center mt-6">
+              <button
+                [routerLink]="['/']"
+                class="rounded px-5 py-3 bg-transparent text-pay-purple border border-pay-purple hover:bg-pay-purple hover:text-white transition-all font-medium inline-flex items-center"
+              >
+                <fa-icon [icon]="left" class="text-xl mr-1"></fa-icon> Contine
+                Shopping
+              </button>
+              <button
+                [routerLink]="['/billing']"
+                class="rounded px-5 py-3 hover:bg-transparent bg-pay-purple hover:text-pay-purple border border-pay-purple hover:bg-pay-purple text-white transition-all font-semibold"
+              >
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="allLists.length < 1" class="text-center">
+      <h5 class="text-2xl font-semibold mb-3">There is no item to Show</h5>
+      <a
+        [routerLink]="'/'"
+        class="bg-pay-purple text-white inline-block px-4 py-1 rounded"
+        >Continue Shop</a
+      >
+    </div>
+  </div>
+</section>

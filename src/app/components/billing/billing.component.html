@@ -1,0 +1,68 @@
+<section class="py-20 px-4">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid sm:grid-cols-2 xl:grid-cols-5 gap-8">
+      <div class="xl:col-span-3">
+        <div class="sm:flex justify-between items-center mb-7">
+          <h5 class="text-2xl font-medium">Billing Details</h5>
+          <p class="text-pay-gray">
+            Already have an account?
+            <a href="#" class="font-medium text-pay-purple">Login</a>
+          </p>
+        </div>
+        <billing-form></billing-form>
+      </div>
+
+      <div class="xl:col-span-2">
+        <div class="bg-blue-600 bg-opacity-10 rounded px-5 py-10 mt-20">
+          <h5 class="text-2xl text-pay-dark-blue mb-4">Your order</h5>
+
+          <div class="max-h-72 overflow-auto">
+            <div
+              *ngFor="let item of allLists"
+              class="flex justify-between items-center border-b border-pay-dark-blue border-opacity-10 pb-4 mb-4"
+            >
+              <div class="flex items-center">
+                <img
+                  src="https://images.unsplash.com/photo-1640622841908-3a691b7b7ac9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+                  alt="ss"
+                  class="w-16 h-16 rounded object-cover"
+                />
+                <div class="px-4">
+                  <p class="text-sm font-medium mb-1">
+                    {{ item.name }}
+                  </p>
+                  <p class="text-xs text-pay-card-border mb-2">
+                    Size: <span class="text-pay-dark-blue">M</span> / Color:
+                    <span class="text-pay-dark-blue">Black</span>
+                  </p>
+                </div>
+              </div>
+              <p class="font-semibold text-pay-purple">129 TT$</p>
+            </div>
+          </div>
+
+          <div class="border-b border-pay-dark-blue border-opacity-10 pb-4">
+            <div class="flex items-center justify-between mb-3">
+              <p class="font-medium text-pay-dark-blue text-base">Subtotal:</p>
+              <p class="font-semibold text-pay-purple text-base">
+                {{ totalPrice }} TT$
+              </p>
+            </div>
+            <div class="flex items-center justify-between">
+              <p class="font-medium text-pay-dark-blue text-base">
+                Shipping fee:
+              </p>
+              <p class="font-semibold text-pay-purple text-base">0 TT$</p>
+            </div>
+          </div>
+          <div class="flex items-center justify-between pt-6">
+            <p class="font-medium text-pay-dark-blue text-2xl">Total</p>
+            <p class="font-medium text-pay-purple text-2xl">
+              {{ totalPrice }} TT$
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

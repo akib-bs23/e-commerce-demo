@@ -1,0 +1,366 @@
+<form
+  class="grid grid-cols-2 gap-5"
+  #billingForm="ngForm"
+  (ngSubmit)="onClickSubmit(billingForm?.value)"
+>
+  <div class="test relative">
+    <label for="fname">First Name <span class="text-red-500">*</span> </label>
+    <input
+      type="text"
+      name="fname"
+      id="fname"
+      required
+      minlength="3"
+      ngModel
+      pattern="^[a-zA-Z_ ]*$"
+      #fname="ngModel"
+      (change)="log(fname)"
+      placeholder="First Name"
+      class="block w-full border border-pay-header-border rounded p-3 lg:p-4 focus:outline-none mt-1"
+    />
+    <div
+      class="transition-all absolute left-0 -bottom-5"
+      *ngIf="fname.touched && !fname.valid"
+    >
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="fname.errors?.['required']"
+        >First Name is required
+      </small>
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="fname.errors?.['minlength']"
+        >First Name length should be minimun
+        {{fname.errors?.['minlength']?.requiredLength}}
+      </small>
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="fname.errors?.['pattern']?.requiredPattern"
+        >Only Charecter are allowed
+      </small>
+    </div>
+  </div>
+  <div class="test relative">
+    <label for="lname">Last Name <span class="text-red-500">*</span> </label>
+    <input
+      type="text"
+      name="lname"
+      id="lname"
+      required
+      minlength="3"
+      ngModel
+      pattern="^[a-zA-Z_ ]*$"
+      #lname="ngModel"
+      (change)="log(lname)"
+      placeholder="Last Name"
+      class="block w-full border border-pay-header-border rounded p-3 lg:p-4 focus:outline-none mt-1"
+    />
+    <div
+      class="transition-all absolute left-0 -bottom-5"
+      *ngIf="lname.touched && !lname.valid"
+    >
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="lname.errors?.['required']"
+        >Last Name is required
+      </small>
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="lname.errors?.['minlength']"
+        >Last Name length should be minimun
+        {{lname.errors?.['minlength']?.requiredLength}}
+      </small>
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="lname.errors?.['pattern']?.requiredPattern"
+        >Only Charecter are allowed
+      </small>
+    </div>
+  </div>
+  <div class="test relative col-span-2">
+    <label for="country">Country <span class="text-red-500">*</span> </label>
+    <input
+      type="text"
+      name="country"
+      id="country"
+      required
+      minlength="3"
+      ngModel
+      pattern="^[a-zA-Z_ ]*$"
+      #country="ngModel"
+      (change)="log(country)"
+      placeholder="Country"
+      class="block w-full border border-pay-header-border rounded p-3 lg:p-4 focus:outline-none mt-1"
+    />
+    <div
+      class="transition-all absolute left-0 -bottom-5"
+      *ngIf="country.touched && !country.valid"
+    >
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="country.errors?.['required']"
+        >Country Name is required
+      </small>
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="country.errors?.['minlength']"
+        >Country Name length should be minimun
+        {{country.errors?.['minlength']?.requiredLength}}
+      </small>
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="country.errors?.['pattern']?.requiredPattern"
+        >Only Charecter are allowed
+      </small>
+    </div>
+  </div>
+  <div class="test relative">
+    <label for="phone">Phone <span class="text-red-500">*</span> </label>
+    <input
+      type="text"
+      name="phone"
+      id="phone"
+      pattern="^([0-9\(\)\/\+ \-]*)$"
+      required
+      minlength="3"
+      ngModel
+      #phone="ngModel"
+      (change)="log(phone)"
+      placeholder="Phone"
+      class="block w-full border border-pay-header-border rounded p-3 lg:p-4 focus:outline-none mt-1"
+    />
+    <div
+      class="transition-all absolute left-0 -bottom-5"
+      *ngIf="phone.touched && !phone.valid"
+    >
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="phone.errors?.['required']"
+        >Phone Number is required
+      </small>
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="phone.errors?.['minlength']"
+        >Phone Number length should be minimun
+        {{phone.errors?.['minlength']?.requiredLength}}
+      </small>
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="phone.errors?.['pattern']?.requiredPattern"
+        >Dosen't match with critaria
+      </small>
+    </div>
+  </div>
+  <div class="test relative">
+    <label for="email">Email <span class="text-red-500">*</span> </label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+      required
+      ngModel
+      #email="ngModel"
+      (change)="log(email)"
+      placeholder="Phone"
+      class="block w-full border border-pay-header-border rounded p-3 lg:p-4 focus:outline-none mt-1"
+    />
+    <div
+      class="transition-all absolute left-0 -bottom-5"
+      *ngIf="email.touched && !email.valid"
+    >
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="email.errors?.['required']"
+        >Email is required
+      </small>
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="email.errors?.['pattern']?.requiredPattern"
+        >Dosen't match with critaria
+      </small>
+    </div>
+  </div>
+  <div class="test relative col-span-2">
+    <label for="companyname"
+      >Company Name <span class="text-red-500">*</span>
+    </label>
+    <input
+      type="text"
+      name="companyname"
+      id="companyname"
+      required
+      minlength="3"
+      ngModel
+      #companyname="ngModel"
+      (change)="log(companyname)"
+      placeholder="Company Name"
+      class="block w-full border border-pay-header-border rounded p-3 lg:p-4 focus:outline-none mt-1"
+    />
+    <div
+      class="transition-all absolute left-0 -bottom-5"
+      *ngIf="companyname.touched && !companyname.valid"
+    >
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="companyname.errors?.['required']"
+        >Company Name is required
+      </small>
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="companyname.errors?.['minlength']"
+        >Company Name length should be minimun
+        {{companyname.errors?.['minlength']?.requiredLength}}
+      </small>
+    </div>
+  </div>
+  <div class="test relative col-span-2">
+    <label for="addressOne">Address <span class="text-red-500">*</span> </label>
+    <input
+      type="text"
+      name="addressOne"
+      id="addressOne"
+      required
+      minlength="3"
+      ngModel
+      #addressOne="ngModel"
+      (change)="log(addressOne)"
+      placeholder="Address"
+      class="block w-full border border-pay-header-border rounded p-3 lg:p-4 focus:outline-none mt-1"
+    />
+    <div
+      class="transition-all absolute left-0 -bottom-5"
+      *ngIf="addressOne.touched && !addressOne.valid"
+    >
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="addressOne.errors?.['required']"
+        >Company Name is required
+      </small>
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="addressOne.errors?.['minlength']"
+        >Company Name length should be minimun
+        {{addressOne.errors?.['minlength']?.requiredLength}}
+      </small>
+    </div>
+  </div>
+  <div class="test relative col-span-2">
+    <label for="addressTwo">Address 2 </label>
+    <input
+      type="text"
+      name="addressTwo"
+      id="addressTwo"
+      minlength="3"
+      ngModel
+      #addressTwo="ngModel"
+      (change)="log(addressTwo)"
+      placeholder="Address 2"
+      class="block w-full border border-pay-header-border rounded p-3 lg:p-4 focus:outline-none mt-1"
+    />
+    <div
+      class="transition-all absolute left-0 -bottom-5"
+      *ngIf="addressTwo.touched && !addressTwo.valid"
+    >
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="addressTwo.errors?.['minlength']"
+        >Company Name length should be minimun
+        {{addressTwo.errors?.['minlength']?.requiredLength}}
+      </small>
+    </div>
+  </div>
+  <div class="test relative">
+    <label for="city">City <span class="text-red-500">*</span> </label>
+    <input
+      type="text"
+      name="city"
+      id="city"
+      required
+      minlength="3"
+      ngModel
+      pattern="^[a-zA-Z_ ]*$"
+      #city="ngModel"
+      (change)="log(city)"
+      placeholder="City"
+      class="block w-full border border-pay-header-border rounded p-3 lg:p-4 focus:outline-none mt-1"
+    />
+    <div
+      class="transition-all absolute left-0 -bottom-5"
+      *ngIf="city.touched && !city.valid"
+    >
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="city.errors?.['required']"
+        >City Name is required
+      </small>
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="city.errors?.['minlength']"
+        >City Name length should be minimun
+        {{city.errors?.['minlength']?.requiredLength}}
+      </small>
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="city.errors?.['pattern']?.requiredPattern"
+        >Only Charecter are allowed
+      </small>
+    </div>
+  </div>
+  <div class="test relative">
+    <label for="town">Town <span class="text-red-500">*</span> </label>
+    <input
+      type="text"
+      name="town"
+      id="town"
+      required
+      minlength="3"
+      ngModel
+      pattern="^[a-zA-Z_ ]*$"
+      #town="ngModel"
+      (change)="log(town)"
+      placeholder="Town"
+      class="block w-full border border-pay-header-border rounded p-3 lg:p-4 focus:outline-none mt-1"
+    />
+    <div
+      class="transition-all absolute left-0 -bottom-5"
+      *ngIf="town.touched && !town.valid"
+    >
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="town.errors?.['required']"
+        >Town is required
+      </small>
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="town.errors?.['minlength']"
+        >Town length should be minimun
+        {{town.errors?.['minlength']?.requiredLength}}
+      </small>
+      <small
+        class="text-red-500 font-bold text-xs"
+        *ngIf="town.errors?.['pattern']?.requiredPattern"
+        >Only Charecter are allowed
+      </small>
+    </div>
+  </div>
+  <div class="test relative col-span-2">
+    <div class="flex justify-between items-center mt-6">
+      <a
+        [routerLink]="['/cart-items']"
+        class="rounded px-5 py-3 bg-transparent text-pay-purple border border-pay-purple hover:bg-pay-purple hover:text-white transition-all font-medium inline-flex items-center"
+      >
+        <fa-icon [icon]="left" class="text-xl mr-1"></fa-icon> Return to cart
+      </a>
+      <button
+        [disabled]="billingForm.invalid"
+        [ngClass]="
+          billingForm.invalid ? 'cursor-not-allowed' : 'cursor-pointer'
+        "
+        class="rounded px-5 py-3 hover:bg-transparent bg-pay-purple hover:text-pay-purple border border-pay-purple hover:bg-pay-purple text-white transition-all font-semibold"
+      >
+        Place Oder
+      </button>
+    </div>
+  </div>
+</form>

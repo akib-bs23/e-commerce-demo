@@ -1,0 +1,28 @@
+<!-- Card  -->
+
+<div class="p-4">
+  <img
+    src="{{ productItem.image }}"
+    alt="productItem.name"
+    class="w-full h-40 object-cover"
+  />
+</div>
+<div class="p-3 text-center">
+  <div class="flex justify-center space-x-2 text-yellow-500 mb-2">
+    <fa-icon [icon]="star"></fa-icon>
+    <fa-icon [icon]="star"></fa-icon>
+    <fa-icon [icon]="star"></fa-icon>
+    <fa-icon [icon]="star"></fa-icon>
+    <fa-icon [icon]="star"></fa-icon>
+  </div>
+  <h6 class="text-pay-dark-blue font-medium mb-2">
+    {{ productItem.name }}
+  </h6>
+  <p class="text-pay-purple mb-3">{{ productItem.price }} TT$</p>
+  <button
+    (click)="addToCart(productItem)"
+    class="bg-pay-purple text-white rounded-none w-full font-semibold px-3 py-2 transition-all hover:bg-pay-dark-blue"
+  >
+    Add to cart
+  </button>
+</div>
