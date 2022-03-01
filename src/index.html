@@ -6,6 +6,24 @@
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <script>
+      (function (w, d, g, k, s) {
+        const a = d.createElement("script"),
+          m = d.getElementsByTagName("script")[0];
+        a.async = true;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+        w.onload = function () {
+          w.Cpay = new _cpay(k, s);
+        };
+      })(
+        window,
+        document,
+        "https://red-sand-0e868700f.1.azurestaticapps.net/index.js",
+        "779d5bf9-be99-4842-873b-bd535d14a7a9",
+        "A/78AYFgSKZwJWGLrOArwWNaVdrfuE+2a0kill2ISrF/oizCQkRDgg=="
+      );
+    </script>
   </head>
   <body>
     <app-root></app-root>

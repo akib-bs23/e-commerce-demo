@@ -32,12 +32,20 @@
                     {{ item.name }}
                   </p>
                   <p class="text-xs text-pay-card-border mb-2">
-                    Size: <span class="text-pay-dark-blue">M</span> / Color:
-                    <span class="text-pay-dark-blue">Black</span>
+                    Quantity:
+                    <span class="text-pay-dark-blue">
+                      {{ item.quantity }}
+                    </span>
+                  </p>
+                  <p class="text-xs text-pay-card-border mb-2">
+                    Price:
+                    <span class="text-pay-dark-blue"> {{ item.price }} </span>
                   </p>
                 </div>
               </div>
-              <p class="font-semibold text-pay-purple">129 TT$</p>
+              <p class="font-semibold text-pay-purple">
+                {{ item.quantity * item.price }} TT$
+              </p>
             </div>
           </div>
 

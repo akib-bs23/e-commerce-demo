@@ -51,7 +51,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
       { path: 'thank-you', component: ThankYouComponent },
     ]),
   ],
-  providers: [],
+  providers: [{ provide: 'Window', useValue: window }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

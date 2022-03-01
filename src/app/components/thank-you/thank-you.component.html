@@ -5,9 +5,28 @@
     >
       Thank you!
     </h2>
+    <p class="mb-3 text-pay-dark-blue">
+      <span class="text-xl">Transaction Token:</span>
+      <span
+        class="bg-pay-purple bg-opacity-80 inline-block shadow text-sm px-2 text-white py-1"
+        >{{ transactionToken }}</span
+      >
+    </p>
+    <p class="text-lg mb-5 text-pay-dark-blue">
+      <span class="text-xl block">status:</span>
+      <span
+        class="bg-pay-purple bg-opacity-80 inline-block shadow text-sm px-2 text-white py-1"
+        >{{ status }}</span
+      >
+    </p>
+    <!-- <p
+      class="text-lg mb-5 bg-pay-purple bg-opacity-80 block shadow px-2 text-white py-1"
+    >
+      {{ message }}
+    </p> -->
     <a
       [routerLink]="'/'"
-      class="bg-pay-purple text-white inline-block px-4 py-1 rounded"
+      class="bg-pay-purple text-white inline-block mt-8 px-4 py-1 rounded"
       >Continue Shop</a
     >
   </div>
