@@ -16,11 +16,9 @@ export class BillingFormComponent {
 
   left = faAngleLeft;
   log = (fname: any) => console.log(fname);
-  totalPrice: number = 0;
 
   onClickSubmit = (value: any) => {
     alert(JSON.stringify(value));
-    this.totalPrice = this.cartService.getTotal();
 
     const orderObj = {
       orderId: '1542365',
@@ -67,4 +65,8 @@ export class BillingFormComponent {
     // @ts-ignore
     window['Cpay'].proceed(orderObj);
   };
+
+  get totalPrice() {
+    return this.cartService.totalProductPrice;
+  }
 }

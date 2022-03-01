@@ -27,10 +27,6 @@ export class ShoppingCartService {
   public totalPrice = 0;
   public totalSinglePrice = 0;
 
-  setToggle(val: boolean): void {
-    this.toggle.next(val);
-    console.log(val);
-  }
   getProducts(): Observable<Product[]> {
     return this.allProductLists$.asObservable();
   }
@@ -64,15 +60,10 @@ export class ShoppingCartService {
     return this.cartItemLists$;
   }
 
-  getTotal(): any {
+  get totalProductPrice() {
     let allQuantities = this.cartItemLists$.map((q) => q.quantity);
     let allPrices = this.cartItemLists$.map((p) => p.price);
 
-    this.totalPrice = allQuantities.reduce(
-      (sum, val, i) => sum + val * allPrices[i],
-      0
-    );
-
-    return this.totalPrice;
+    return allQuantities.reduce((sum, val, i) => sum + val * allPrices[i], 0);
   }
 }

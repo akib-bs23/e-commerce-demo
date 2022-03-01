@@ -14,12 +14,14 @@ import {
 export class BillingComponent implements OnInit {
   left = faAngleLeft;
   public allLists: Product[] = [];
-  public totalPrice: number = 0;
   public singleTotal: number = 0;
   constructor(private cartService: ShoppingCartService) {}
 
   ngOnInit(): void {
     this.allLists = this.cartService.cartItemLists$;
-    this.totalPrice = this.cartService.getTotal();
+  }
+
+  get totalPrice() {
+    return this.cartService.totalProductPrice;
   }
 }
