@@ -8,34 +8,28 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProductCardComponent } from './components/products/product-card/product-card.component';
 import { HomeComponent } from './pages/home/home.component';
-import { CartComponent } from './components/cart/cart.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { BillingComponent } from './components/billing/billing.component';
 import { ProductsComponent } from './components/products/products.component';
 import { BillingFormComponent } from './components/billing-form/billing-form.component';
-import { TestComponent } from './components/test/test.component';
 import { ThankYouComponent } from './components/thank-you/thank-you.component';
-import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CartComponent,
+    AppComponent,
     HeaderComponent,
     FooterComponent,
     ProductCardComponent,
     HomeComponent,
-    CartComponent,
     ProductDetailsComponent,
     CartItemComponent,
     BillingComponent,
     ProductsComponent,
     BillingFormComponent,
-    TestComponent,
     ThankYouComponent,
-    ReactiveFormComponent,
     SidebarComponent,
   ],
   imports: [

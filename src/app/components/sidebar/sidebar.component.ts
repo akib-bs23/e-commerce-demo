@@ -1,22 +1,52 @@
 import { Component, OnInit } from '@angular/core';
+import { faTimes, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
+import {
+  Product,
+  ShoppingCartService,
+} from 'src/app/services/shopping-cart.service';
 import { ToggleService } from 'src/app/services/toggle.service';
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
-  showSidebar: Observable<boolean> | undefined;
+  close = faTimes;
+  delete = faTrash;
+  showCartArea: Observable<boolean> | undefined;
 
-  constructor(private toggleService: ToggleService) {}
+  public allLists: Product[] = [];
+  public singleTotal: number = 0;
+
+  constructor(
+    private cartService: ShoppingCartService,
+    private toggleService: ToggleService
+  ) {}
 
   ngOnInit(): void {
-    this.showSidebar = this.toggleService.getShowSidebar();
+    this.allLists = this.cartService.cartItemLists$;
+    this.showCartArea = this.toggleService.getShowSidebar();
   }
 
-  closeSidebar() {
+  deleteFromCart(product: Product) {
+    this.cartService.deleteCart(product);
+  }
+
+  addQuantity(product: Product) {
+    this.cartService.increaseQuantity(product);
+  }
+
+  removeQuantity(product: Product) {
+    this.cartService.decreaseQuantity(product);
+  }
+
+  closeCartArea() {
     this.toggleService.toggleSidebarState();
+  }
+
+  get totalPrice() {
+    return this.cartService.totalProductPrice;
   }
 }

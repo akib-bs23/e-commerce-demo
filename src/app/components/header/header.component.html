@@ -15,7 +15,7 @@
           class="flex w-full justify-between items-center lg:static absolute left-0 top-[75px] z-10 lg:p-0 p-4 bg-white transition-all"
           [ngClass]="toggleMenu ? 'left-0' : '-left-full'"
         >
-          <ul
+          <!-- <ul
             class="flex lg:flex-row flex-col lg:space-y-0 space-y-4 text-left lg:space-x-4 lg:items-center lg:ml-8"
           >
             <li>
@@ -24,13 +24,13 @@
             <li>
               <a class="p-2" [routerLink]="['products-details']">Product</a>
             </li>
-            <!-- <li>
+            <li>
               <a class="p-2" [routerLink]="['billing']">Billing</a>
-            </li> -->
-          </ul>
+            </li>
+          </ul> -->
 
           <ul
-            class="flex lg:flex-row flex-col lg:space-y-0 space-y-4 text-left lg:space-x-4 lg:items-center items-end"
+            class="flex lg:flex-row flex-col lg:space-y-0 space-y-4 text-left lg:space-x-4 lg:items-center items-end ml-auto"
           >
             <li>
               <button class="p-2 relative" (click)="toggleSidebar()">
